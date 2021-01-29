@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">Calculator</string>
+    <string name="app_name">Lecture 4</string>
     <string name="open_next_screen">Open next screen</string>
     <string name="this_is_the_second_activity">This is the second activity</string>
     <string name="click_to_open_https_google_com"><u>https://google.com</u></string>
+    <string name="open_webview">Open in WebView</string>
+    <string name="open_in_browser">Open in Browser</string>
+    <string name="fruits">Fruits</string>
+    <string name="web_view">Web View</string>
+    <string name="click_at_trolley">Click at image to select fruit</string>
 </resources>

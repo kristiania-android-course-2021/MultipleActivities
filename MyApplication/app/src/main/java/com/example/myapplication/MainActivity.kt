@@ -1,12 +1,17 @@
 package com.example.myapplication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import kotlinx.android.synthetic.main.activity_main.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+
+    val FRUIT_REQUEST = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,48 +20,41 @@ class MainActivity : AppCompatActivity() {
 
         Log.d(this.javaClass.simpleName, "onCreate")
 
+        var editText = findViewById<EditText>(R.id.editText)
+        var openInWebView = findViewById<Button>(R.id.button1)
+        var openInBrowser = findViewById<Button>(R.id.button2)
+        var imageViewSelectFruit = findViewById<ImageView>(R.id.imageViewSelectedFruit)
 
-        btn_open_second.setOnClickListener {
-            Intent(this, SecondActivity::class.java).apply {
-                startActivity(this)
-            }
+
+
+        openInWebView.setOnClickListener {
+            var intent = Intent(this, WebViewActivity::class.java)
+            intent.putExtra("link", editText.editableText.toString())
+            startActivity(intent)
         }
 
-        //applicationContext is also Application instance
-        var myApp : MyApplication = this.applicationContext as MyApplication
-        var name = myApp.appName
+        openInBrowser.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(editText.editableText.toString())
+            startActivity(intent)
+        }
 
+        imageViewSelectFruit.setOnClickListener {
+            var intent = Intent(this, FruitsActivity::class.java)
+            startActivityForResult(intent, FRUIT_REQUEST)
+        }
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
 
-        Log.d(this.javaClass.simpleName, "onStart")
-    }
+        if( requestCode == FRUIT_REQUEST && resultCode == RESULT_OK ){
+            var resId = data?.getIntExtra("fruit", 0)
 
-    override fun onResume() {
-        super.onResume()
-
-        Log.d(this.javaClass.simpleName, "onResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(this.javaClass.simpleName, "onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(this.javaClass.simpleName, "onStop")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(this.javaClass.simpleName, "onDestroy")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.d(this.javaClass.simpleName, "onRestart")
+            if(resId!= null) {
+                var imageViewSelectFruit = findViewById<ImageView>(R.id.imageViewSelectedFruit)
+                imageViewSelectFruit.setImageResource(resId!!)
+            }
+        }
     }
 }

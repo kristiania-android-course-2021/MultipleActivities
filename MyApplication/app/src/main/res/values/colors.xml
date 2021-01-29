@@ -27,5 +27,7 @@
     <color name="rgb_red_1">#ff0000</color>
     <color name="rgb_green_1">#00ff00</color>
     <color name="rgb_blue_1">#0000ff</color>
+    <color name="text_color">#000</color>
+
 
 </resources>

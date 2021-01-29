@@ -1,21 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn_open_second"
-        android:layout_width="wrap_content"
-        android:minHeight="56dp"
-        android:padding="10dp"
+    <EditText
+        android:inputType="textWebEditText"
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/open_next_screen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="https://www.kristiania.no/"
+       />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/open_webview"
+     />
+
+    <Button
+        android:layout_marginLeft="16dp"
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/open_in_browser"
+      />
+
+    <View
+        android:layout_marginTop="32dp"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+       />
+
+     <TextView
+         android:textColor="@color/text_color"
+         android:layout_margin="16dp"
+         android:id="@+id/textViewSelectFruit"
+         android:text="@string/click_at_trolley"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"/>
+
+     <ImageView
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_add_shopping_cart_24px"
+        android:id="@+id/imageViewSelectedFruit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
