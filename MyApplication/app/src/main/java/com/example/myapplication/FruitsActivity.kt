@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 
@@ -14,6 +15,9 @@ class FruitsActivity : AppCompatActivity(), View.OnClickListener {
         findViewById<ImageView>( R.id.imageApple).setOnClickListener(this)
         findViewById<ImageView>( R.id.imageStrawberry).setOnClickListener(this)
         findViewById<ImageView>( R.id.imageOrange).setOnClickListener(this)
+
+        Log.d(this.javaClass.simpleName, "onCreate")
+
     }
 
     override fun onClick(v: View?) {
@@ -30,4 +34,34 @@ class FruitsActivity : AppCompatActivity(), View.OnClickListener {
         finish()
 
     }
+
+    override fun onStart() {
+          super.onStart()
+          Log.d(this.javaClass.simpleName, "onStart")
+    }
+
+    override fun onResume() {
+            super.onResume()
+            Log.d(this.javaClass.simpleName, "onResume")
+    }
+
+    override fun onPause() {
+            super.onPause()
+            Log.d(this.javaClass.simpleName, "onPause")
+    }
+
+    override fun onStop() {
+            super.onStop()
+            Log.d(this.javaClass.simpleName, "onStop")
+    }
+
+    override fun onDestroy() {
+            super.onDestroy()
+            Log.d(this.javaClass.simpleName, "onDestroy")
+    }
+
+        override fun onRestart() {
+            super.onRestart()
+            Log.d(this.javaClass.simpleName, "onRestart")
+        }
 }
