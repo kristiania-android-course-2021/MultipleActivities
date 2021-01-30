@@ -26,35 +26,21 @@ class MainActivity : AppCompatActivity() {
         var imageViewSelectFruit = findViewById<ImageView>(R.id.imageViewSelectedFruit)
 
 
-
         openInWebView.setOnClickListener {
-            var intent = Intent(this, WebViewActivity::class.java)
-            intent.putExtra("link", editText.editableText.toString())
-            startActivity(intent)
+            //Todo: startWebView start WebViewActivity and pass link from editText
         }
 
         openInBrowser.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse(editText.editableText.toString())
-            startActivity(intent)
+            //Todo: openbrowser start browser   and pass link from editText
         }
 
         imageViewSelectFruit.setOnClickListener {
-            var intent = Intent(this, FruitsActivity::class.java)
-            startActivityForResult(intent, FRUIT_REQUEST)
+            //Todo openfruit startActivityForResult
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
 
-        if( requestCode == FRUIT_REQUEST && resultCode == RESULT_OK ){
-            var resId = data?.getIntExtra("fruit", 0)
+    //Todo override onActivityResult
+    //Todo getresult
 
-            if(resId!= null) {
-                var imageViewSelectFruit = findViewById<ImageView>(R.id.imageViewSelectedFruit)
-                imageViewSelectFruit.setImageResource(resId!!)
-            }
-        }
-    }
 }

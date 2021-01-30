@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ImageView
 
 class FruitsActivity : AppCompatActivity(), View.OnClickListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fruits)
@@ -17,20 +18,8 @@ class FruitsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        val drawableResId = when(v?.id) {
-            R.id.imageApple->  R.drawable.apple
-            R.id.imageOrange-> R.drawable.orange
-            R.id.imageStrawberry-> R.drawable.strawberry
-            else -> 0
-        }
 
-        var result = Intent()
-        result.putExtra("fruit", drawableResId)
-        setResult(RESULT_OK, result)
-
-        finish()
+        //Todo whichone is clicked
+        //Todo pack the result and finish (i.e. close) the opened activity
     }
-
-
-
 }
