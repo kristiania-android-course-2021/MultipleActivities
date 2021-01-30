@@ -24,13 +24,10 @@ class FruitsActivity : AppCompatActivity(), View.OnClickListener {
             else -> 0
         }
 
-        var result = Intent()
-        result.putExtra("fruit", drawableResId)
-        setResult(RESULT_OK, result)
-
+        var data = Intent()
+        data.putExtra("fruit", drawableResId)
+        setResult(RESULT_OK, data)
         finish()
+
     }
-
-
-
 }
