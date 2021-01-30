@@ -19,8 +19,8 @@ class WebViewActivity : AppCompatActivity() {
         setContentView(R.layout.activity_web_view)
         var webView = findViewById<WebView>(R.id.webView)
 
-        var link = intent.getStringExtra("link")
-        webView.loadUrl(link)
+        //Todo getandload the link into webview
+        
 
         Log.d(this.javaClass.simpleName, "onCreate")
 
