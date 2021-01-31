@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,34 +17,29 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
+
+        var binding =  ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         Log.d(this.javaClass.simpleName, "onCreate")
 
-        var editText = findViewById<EditText>(R.id.editText)
-        var openInWebView = findViewById<Button>(R.id.button1)
-        var openInBrowser = findViewById<Button>(R.id.button2)
-        var imageViewSelectFruit = findViewById<ImageView>(R.id.imageViewSelectedFruit)
-
-
-
-        openInWebView.setOnClickListener {
+        binding.openInWebView.setOnClickListener {
 
             var intent = Intent(this, WebViewActivity::class.java)
-            intent.putExtra("link", editText.editableText.toString())
+            intent.putExtra("link", binding.editText.editableText.toString())
             startActivity(intent)
 
         }
 
-        openInBrowser.setOnClickListener {
+        binding.button2.setOnClickListener {
 
             val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse(editText.editableText.toString())
+            intent.data = Uri.parse(binding.editText.editableText.toString())
             startActivity(intent)
 
         }
 
-        imageViewSelectFruit.setOnClickListener {
+        binding.imageViewSelectedFruit.setOnClickListener {
             var intent = Intent(this, FruitsActivity::class.java)
             startActivityForResult(intent, FRUIT_REQUEST)
         }

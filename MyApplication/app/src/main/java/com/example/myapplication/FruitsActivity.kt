@@ -5,15 +5,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import com.example.myapplication.databinding.ActivityFruitsBinding
 
 class FruitsActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fruits)
 
-        findViewById<ImageView>( R.id.imageApple).setOnClickListener(this)
-        findViewById<ImageView>( R.id.imageStrawberry).setOnClickListener(this)
-        findViewById<ImageView>( R.id.imageOrange).setOnClickListener(this)
+
+        var binding =  ActivityFruitsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
+        binding.imageApple.setOnClickListener(this)
+        binding.imageStrawberry.setOnClickListener(this)
+        binding.imageOrange.setOnClickListener(this)
+
     }
 
     override fun onClick(v: View?) {
